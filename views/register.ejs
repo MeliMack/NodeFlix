@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('partials/head', {title: 'Editando: ' + ''}) %>
+  <title>Registro </title>
+  
+</head>
+
+<body>
+  <%- include('partials/headerNavbar') %>
+  <br></br><br></br><br></br><br></br><br></br><br></br></br>
+  <!-- Formulario de registro -->
+  <div class="ccMasterRegister">
+    <div class="loginForm container d-flex flex-wrap flex-column align-items-center">
+      <h2 class="heading-secondary pt-5">Bienvenido a NodeFlix!</h2>
+      <p>Por favor complete la información requerida para continuar</p>
+      <div class="ccDetalleRegistroUsuario mt-5 bg-white shadow p-5">
+        <h3 class="heading-tertiary">Informacion personal</h3>
+        <form action="/users/register" method="POST" enctype="multipart/form-data">
+          <div class="form-row">
+            <div class="form-group col-12">
+              <label for="userName">Nombre</label>
+              <input type="text" name="userName" id="inputUserName" class="form-control" >
+              <small class="text-danger"><%= (typeof errors != 'undefined' && errors.userName) ? errors.userName.msg : '' %></small>
+            </div>
+            
+            <div class="form-group col-12">
+              <label for="userEmail">Email</label>
+              <input type="email" name="userEmail" id="inputUserEmail" class="form-control" >
+              <small class="text-danger"><%= (typeof errors != 'undefined' && errors.userEmail) ? errors.userEmail.msg : '' %></small>
+            </div>
+            <div class="form-group col-12">
+              <label for="userPassword">Password</label>
+              <input type="password" name="userPassword" id="inputUserPassword" class="form-control">
+              <small class="text-danger"><%= (typeof errors != 'undefined' && errors.userPassword) ? errors.userPassword.msg : '' %></small>
+              <small class="form-text text-muted"></small>
+            </div>
+            <div class="form-group col-12">
+              <label for="userCategory">Perfil</label>
+              <select id="UserCategory" class="form-control"name="userCategory">
+                <option selected>Usuario</option>
+                <option>Administrador</option>
+              </select>
+              
+            </div>
+            <div class="form-group col-12">
+              <label for="userAvatar">Imagen de Perfil</label>
+              <input type="file" name="userAvatar" id="inputUserAvatar" class="form-control" >
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success btn-sm w-100">Confirmar registro</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+<%- include('partials/footer') %>
+</body>
+
+</html>

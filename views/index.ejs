@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <%- include('partials/head', {title: 'Home'}) %>
+  <head>
+    <title>Home</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+     <!-- Header -->
+     <%- include('partials/headerNavbar') %>
+     <br></br><br></br><br></br><br></br><br></br><br></br></br><br><br>
+     
+     <div class="row">
+     <div class="col-6">
+     <h2> Peliculas Destacadas </h2>
+      <ul>
+    <% for( let i  = 0; i < movies[0].length; i++) { %>
+      <li>
+        <a href="/movies/<%= movies[0][i].id %>">
+            <h5><%=movies[0][i].title %></h5>
+        </a>
+      </li>		   
+    <%  } %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+     <h2> Series Destacadas </h2>
+    <ul>
+    <% for( let i  = 0; i < series[0].length; i++) { %>
+      <li>
+        <a href="/series/<%= series[0][i].id %>">
+            <h5><%=series[0][i].title %></h5>
+        </a>	
+      </li>	   
+    <%  } %>
+  </ul>
+</div>
+</div>
+<br><br><br><br><br><br>
+    <h5> Perfil Administrador </h5>
+    <h3>Seleccione la accion que desee realizar</h3>
+    
+    <a href="/movies/crear">Crear Producto</a>
+    <a href="/movies/editar">Editar Producto</a>
+    <a href="/movies/borrar">Eliminar Producto</a>
+    
+    
+    <button type="submit" class="btn btn-success w-100" name="rememberMe"><a href="/users/logout">cerrar sesion</a></button>
+   
+    <%- include('partials/footer') %>
+  </body>
+</html>

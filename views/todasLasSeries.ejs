@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Todas las Series'}) %>
+
+<body>
+	<!-- Header -->
+	<%- include('partials/headerNavbar') %>
+	<br></br><br></br><br></br><br></br><br></br><br></br><br><br>
+
+	<div class="container products-wrapper">
+		<div class="row">
+			<h2>Nuestras Series</h2>
+			<div class="col-12">
+				
+            </div>
+                <ul>
+		 	<!--Para que me repita este maquetado tantas veces como productos tenga-->
+			        <% for(i=0; i<series.length ; i++){%>
+				        <li>
+					
+						<!--para que cuando hago click en un producto me lleve al detalle: <%series[i].id %>"-->
+						<a href="/series/<%= series[i].id %>">
+								<h5><%=series[i].title %></h5>
+						</a>
+					
+				        </li>
+			        <%  } %>
+            </ul>
+		
+		</div>
+	</div>
+	
+	<!-- footer -->
+	<%- include('partials/footer') %>
+	
+</body>	
+</html>

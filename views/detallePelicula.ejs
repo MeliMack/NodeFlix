@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Detalle: ' + ''}) %>
+
+<body>
+	<!-- Header -->
+	<%- include('partials/headerNavbar') %>
+    <br></br><br></br><br></br><br></br><br></br><br></br></br><br><br>
+    <div>
+        <h2>TITULO: <%=movies.title %></h2>
+				
+	    <h4>FECHA DE ESTRENO: <%=movies.release_date%></h4>
+						
+	    <h4>GENERO: <%=movies.genero.name%></h4>
+    </div>  							
+    <img src="/images/cine.png" alt="" class="product-detail-img">	
+    						
+                        <h4>CONFIGURACION DE PRODUCTO</h4>
+                        <a href="/movies/editar/<%=movies.id%>">
+                            <button class="buy-now-button">Editar</button>
+                        </a>
+                        <form action="/movies/borrar/<%=movies.id%>" method="POST">
+                            <button type="submit" class="buy-now-button">Borrar</button>
+                        </form>
+               
+
+<!-- footer -->
+<%- include('partials/footer') %>
+
+<script src="/js/productValidator.js"></script>
+</body>	
+</html>
